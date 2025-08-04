@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.quantumy.bibliotecafreelance.ui.theme.BibliotecaFreelanceTheme
+import com.quantumy.bibliotecafreelance.views.AppNavigation
 import com.quantumy.bibliotecafreelance.views.MainScreen
 
 class MainActivity : ComponentActivity() {
@@ -20,7 +21,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             BibliotecaFreelanceTheme {
-                MainScreen()
+                AppNavigation()
             }
         }
     }

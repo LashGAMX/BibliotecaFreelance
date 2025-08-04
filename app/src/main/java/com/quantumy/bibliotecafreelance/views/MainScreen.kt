@@ -20,11 +20,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import com.quantumy.bibliotecafreelance.data.NavItem
 
 @Composable
-@Preview
-fun MainScreen(modifier: Modifier = Modifier) {
+fun MainScreen(
+    navController: NavController,
+) {
 
     val navItemList = listOf(
         NavItem("Home", Icons.Default.Home,0),
@@ -66,14 +68,14 @@ fun MainScreen(modifier: Modifier = Modifier) {
             }
         }
     ){ innerPadding ->
-        ContentScreen(modifier = Modifier.padding(innerPadding),selectedIndex)
+        ContentScreen(modifier = Modifier.padding(innerPadding),selectedIndex, navController)
     }
 }
 
 @Composable
-fun ContentScreen(modifier: Modifier = Modifier,selectedIndex: Int){
+fun ContentScreen(modifier: Modifier = Modifier,selectedIndex: Int, navController: NavController){
     when(selectedIndex){
-        0-> HomePage()
+        0-> HomePage(navController)
         1-> ArchivoPage()
         2-> FavoritePage()
     }
