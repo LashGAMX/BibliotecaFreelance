@@ -1,4 +1,4 @@
-package com.quantumy.bibliotecafreelance.views
+package com.quantumy.bibliotecafreelance
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavType
@@ -6,6 +6,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.quantumy.bibliotecafreelance.views.CategoryPage
+import com.quantumy.bibliotecafreelance.views.MainScreen
 
 @Composable
 fun AppNavigation() {
