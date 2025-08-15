@@ -6,7 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.quantumy.bibliotecafreelance.views.CategoryPage
+import com.quantumy.bibliotecafreelance.presentation.category.CategoryPage
 import com.quantumy.bibliotecafreelance.views.MainScreen
 
 @Composable

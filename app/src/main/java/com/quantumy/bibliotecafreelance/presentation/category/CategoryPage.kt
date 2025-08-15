@@ -1,4 +1,4 @@
-package com.quantumy.bibliotecafreelance.views
+package com.quantumy.bibliotecafreelance.presentation.category
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding

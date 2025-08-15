@@ -1,4 +1,4 @@
-package com.quantumy.bibliotecafreelance.views
+package com.quantumy.bibliotecafreelance.presentation.favorite
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,16 +15,16 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 @Preview
-fun ArchivoPage(modifier: Modifier = Modifier) {
+fun FavoritePage (modifier: Modifier = Modifier){
     Column (
-        modifier = modifier.fillMaxSize().background(Color.Red),
-        verticalArrangement = Arrangement.Center, // Centrado en la pantalla
-        horizontalAlignment = Alignment.CenterHorizontally, // Centrado en la pantalla
+        modifier = modifier.fillMaxSize().background(Color.Yellow),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
     ){
         Text(
-            text = "Archivo Page",
+            text = "Favorite Page",
             fontSize = 40.sp,
-            fontWeight = FontWeight.SemiBold,
+            fontWeight = FontWeight.Bold,
             color = Color.White
         )
     }

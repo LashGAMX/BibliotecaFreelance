@@ -46,4 +46,5 @@ coil = {module = "io.coil-kt:coil-compose", version.ref = "coil"}
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
+googleServices = { id = "com.google.gms.google-services", version.ref = "services"}
+crashlytics = {id= "com.google.firebase.crashlytics", version.ref = "crashlytics"}

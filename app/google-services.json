@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "191389732284",
+    "project_id": "bibliotecafreelance-b1880",
+    "storage_bucket": "bibliotecafreelance-b1880.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191389732284:android:057671a29c19c68684efb9",
+        "android_client_info": {
+          "package_name": "com.quantumy.bibliotecafreelance"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSkVkKLNgIV_pBUVO8vkngZSyAiKR_iKc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
