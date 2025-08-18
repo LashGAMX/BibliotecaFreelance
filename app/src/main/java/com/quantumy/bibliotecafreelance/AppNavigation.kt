@@ -1,5 +1,6 @@
 package com.quantumy.bibliotecafreelance
 
+import DrivePreview
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -20,11 +21,31 @@ fun AppNavigation() {
         }
 
         composable(
-            "category/{category}",
-            arguments = listOf(navArgument("category") { type = NavType.StringType })
+            "category/{category}/{categoryName}",
+            arguments = listOf(
+                navArgument("category") { type = NavType.StringType },
+                navArgument("categoryName") { type = NavType.StringType; defaultValue = "" } // opcional
+            )
         ){navBackStackEntry ->
-            val category = navBackStackEntry.arguments?.getString("category").toString()
-            CategoryPage(title = category, navController = navController)
+            val category = navBackStackEntry.arguments?.getString("category").orEmpty()
+            val categoryName = navBackStackEntry.arguments?.getString("categoryName")?.takeIf { it.isNotEmpty() }
+
+            CategoryPage(
+                title = category,
+                categoryName = categoryName,
+                navController = navController
+            )
+        }
+
+        composable(
+            "drivePreview?url={url}",
+            arguments = listOf(navArgument("url") {
+                type = NavType.StringType
+                defaultValue = ""
+            })
+        ) { backStackEntry ->
+            val url = backStackEntry.arguments?.getString("url").orEmpty()
+            DrivePreview(url)
         }
 
     }

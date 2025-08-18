@@ -13,11 +13,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.quantumy.bibliotecafreelance.R
+import com.quantumy.bibliotecafreelance.presentation.model.Category
 
 @Composable
 fun CardMenu(
     title: String? = null,
     description: String? = null,
+    category: String? = null,
     @DrawableRes imageResId: Int = R.drawable.ic_launcher_foreground, // imagen por defecto,
     navController: NavController,
 ) {
@@ -28,7 +30,7 @@ fun CardMenu(
             .fillMaxWidth()
             .padding(8.dp),
         onClick = {
-            navController.navigate("category/$title")
+            navController.navigate("category/$title/$category")
         }
     ) {
         Row(

@@ -22,11 +22,11 @@ fun HomePage(
 ) {
 
     val menuItem = listOf<MenuItem>(
-        MenuItem(1,"Contratos", R.drawable.contrato),
-        MenuItem(2,"Finanzas", R.drawable.finanzas),
-        MenuItem(2,"Diseño", R.drawable.disenio),
-        MenuItem(2,"Marketing", R.drawable.marketing),
-        MenuItem(2,"Facturacion", R.drawable.facturacion),
+        MenuItem(1,"Contratos","contracts",R.drawable.contrato),
+        MenuItem(2,"Finanzas", "finance",R.drawable.finanzas),
+        MenuItem(2,"Diseño","desing", R.drawable.disenio),
+        MenuItem(2,"Marketing", "marketing",R.drawable.marketing),
+        MenuItem(2,"Facturacion", "facturacion",R.drawable.facturacion),
     )
     Scaffold (
         topBar = {
@@ -37,7 +37,7 @@ fun HomePage(
             modifier = Modifier.padding(contentPadding).padding(16.dp)
         ){
             menuItem.forEach { item ->
-                CardMenu(item.name,"Sin descripcion", item.icon,navController)
+                CardMenu(item.name,"Sin descripcion", item.category  ,item.icon,navController)
             }
         }
 

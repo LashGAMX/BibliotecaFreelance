@@ -2,54 +2,74 @@ package com.quantumy.bibliotecafreelance.presentation.category
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.quantumy.bibliotecafreelance.core.components.CardResouce
+import com.quantumy.bibliotecafreelance.presentation.model.Category
+import com.quantumy.bibliotecafreelance.presentation.viewmodel.CategoryViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-@Preview
-fun CategoryPage (
+fun CategoryPage(
     title: String? = "Sin titulo",
-    navController: NavController? = null,
-){
-    Scaffold (
+    categoryName: String? = null,
+    navController: NavController,
+    viewModel: CategoryViewModel = viewModel() // ✅ Usamos viewModel() para no recrearlo
+) {
+    val categories by viewModel.category.collectAsState()
+
+    // ✅ Solo se ejecuta una vez al abrir la pantalla
+    LaunchedEffect(Unit) {
+        viewModel.getCategories(categoryName)
+    }
+
+    Scaffold(
         topBar = {
             TopAppBar(
                 navigationIcon = {
-                    IconButton(
-                        onClick = {
-                            if (navController != null) {
-                                navController.popBackStack()
-                            }
-                        }
-                    ) {
+                    IconButton(onClick = { navController.popBackStack() }) {
                         Icon(Icons.Default.ArrowBack, contentDescription = "Back")
                     }
                 },
-                title = {
-                    if (title != null) {
-                        Text(title)
-                    }
-                },
+                title = { Text(title + " " + (categoryName ?: "")) }
             )
-        },
-    ){ contentPadding ->
-        Column(
-            modifier = Modifier.padding(contentPadding).padding(16.dp)
-        ) {
-
+        }
+    ) { contentPadding ->
+        Column(modifier = Modifier.padding(contentPadding).padding(16.dp)) {
+            LazyColumn {
+                items(categories) { category ->
+                    CategoryItem(category, navController)
+                }
+            }
         }
     }
+}
 
+@Composable
+fun CategoryItem(category: Category,navController: NavController) {
+    Column(
+        modifier = Modifier.padding(top = 20.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        CardResouce(
+            id = 1,
+            title = category.title.orEmpty(),
+            description = category.description,
+            imageResId = category.image,
+            driveUrl = category.link,
+            navController = navController
+        )
+    }
 }
