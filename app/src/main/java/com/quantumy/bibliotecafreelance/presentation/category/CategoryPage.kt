@@ -1,5 +1,6 @@
 package com.quantumy.bibliotecafreelance.presentation.category
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -39,11 +40,15 @@ fun CategoryPage(
         topBar = {
             TopAppBar(
                 navigationIcon = {
-                    IconButton(onClick = { navController.popBackStack() }) {
+                    IconButton(onClick = {
+                        navController.popBackStack() // 1 pantalla atrás
+                        navController.popBackStack() // 2 pantallas atrás
+                        navController.popBackStack() // 2 pantallas atrás
+                    }) {
                         Icon(Icons.Default.ArrowBack, contentDescription = "Back")
                     }
                 },
-                title = { Text(title + " " + (categoryName ?: "")) }
+                title = { Text(title ?: "Sin título") }
             )
         }
     ) { contentPadding ->
@@ -69,7 +74,7 @@ fun CategoryItem(category: Category,navController: NavController) {
             description = category.description,
             imageResId = category.image,
             driveUrl = category.link,
-            navController = navController
+//            navController = navController
         )
     }
 }

@@ -37,7 +37,12 @@ fun HomePage(
             modifier = Modifier.padding(contentPadding).padding(16.dp)
         ){
             menuItem.forEach { item ->
-                CardMenu(item.name,"Sin descripcion", item.category  ,item.icon,navController)
+                CardMenu(
+                    item.name,
+                    "Sin descripcion",
+                    item.category,
+                    item.icon,
+                    navController)
             }
         }
 

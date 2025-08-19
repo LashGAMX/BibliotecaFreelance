@@ -37,16 +37,17 @@ fun AppNavigation() {
             )
         }
 
-        composable(
-            "drivePreview?url={url}",
-            arguments = listOf(navArgument("url") {
-                type = NavType.StringType
-                defaultValue = ""
-            })
-        ) { backStackEntry ->
-            val url = backStackEntry.arguments?.getString("url").orEmpty()
-            DrivePreview(url)
-        }
+//        composable(
+//            "drivePreview?url={url}",
+//            arguments = listOf(navArgument("url") {
+//                type = NavType.StringType
+//                defaultValue = ""
+//            })
+//        ) { backStackEntry ->
+//            val url = backStackEntry.arguments?.getString("url").orEmpty()
+//            // Pasamos navController para controlar el back dentro del WebView
+//            DrivePreview(url = url, navController = navController)
+//        }
 
     }
 }
